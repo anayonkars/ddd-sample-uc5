@@ -26,7 +26,10 @@ public class Item {
 
     @Override
     public String toString() {
-        return product.toString() + ":" + quantity;
+        return "Item{" +
+                "product=" + product +
+                ", quantity=" + quantity +
+                '}';
     }
 
     public String getProductName() {

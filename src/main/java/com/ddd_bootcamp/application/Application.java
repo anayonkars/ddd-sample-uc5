@@ -19,7 +19,7 @@ public class Application {
         Item applePencilItem = new Item(applePencil, 2);
         cart.add(applePencilItem);
 
-
+        System.out.println("----------------------------------------");
         System.out.println("Cart = " + cart);
         List<Item> items = cart.getItems();
         System.out.println("items = " + items);

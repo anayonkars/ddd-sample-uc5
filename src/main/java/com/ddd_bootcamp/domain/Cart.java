@@ -26,11 +26,6 @@ public class Cart {
         return items;
     }
 
-    @Override
-    public String toString() {
-        return items.toString();
-    }
-
     public void remove(Item item) {
         ItemRemovedFromCartEvent itemRemovedFromCartEvent =
                 new ItemRemovedFromCartEvent(item.getProductName());
@@ -54,5 +49,13 @@ public class Cart {
                 .filter(event -> event instanceof ItemRemovedFromCartEvent)
                 .map(event -> ((ItemRemovedFromCartEvent) event).getProductName())
                 .collect(Collectors.toSet());
+    }
+
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "events=" + events +
+                ", items=" + items +
+                '}';
     }
 }
