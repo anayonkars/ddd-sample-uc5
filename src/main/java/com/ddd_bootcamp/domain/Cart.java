@@ -41,7 +41,8 @@ public class Cart {
     private void apply(ItemRemovedFromCartEvent event) {
         events.add(event);
         this.items.
-                remove(this.items.stream().filter(item -> item.getProductName().equals(event.getProductName())).findFirst().get());
+                remove(this.items.stream().filter(item -> item.getProductName()
+                        .equals(event.getProductName())).findFirst().get());
     }
 
     public Set<String> removedProductNames() {
