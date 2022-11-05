@@ -4,13 +4,11 @@ import com.ddd_bootcamp.domain.events.DomainEvent;
 import com.ddd_bootcamp.domain.events.ItemAddedToCartEvent;
 import com.ddd_bootcamp.domain.events.ItemRemovedFromCartEvent;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Cart {
-
+    private String uuid = UUID.randomUUID().toString();
     private List<DomainEvent> events = new ArrayList<>();
     private List<Item> items = new ArrayList<>();
 
@@ -58,5 +56,18 @@ public class Cart {
                 "events=" + events +
                 ", items=" + items +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cart cart = (Cart) o;
+        return uuid.equals(cart.uuid);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(uuid);
     }
 }
